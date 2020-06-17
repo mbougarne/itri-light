@@ -21,7 +21,7 @@ class Profile extends Model
      */
     public function setFirstNameAttribute($value)
     {
-        $this->attributes['first_name'] = trim(ucfirst($value));
+        $this->attributes['first_name'] = trim(strtolower($value));
     }
 
     /**
@@ -58,7 +58,7 @@ class Profile extends Model
     }
 
     /**
-     * Get the last name in title case
+     * Get the avatar
      *
      * @param string $value
      * @return string
