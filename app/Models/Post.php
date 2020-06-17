@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Scopes\CreatedAt;
 
-class Page extends Model
+class Post extends Model
 {
     /**
      * The attributes that aren't mass assignable.
@@ -15,24 +15,18 @@ class Page extends Model
      */
     protected $guarded = [];
 
-
+    /**
+     * Boot
+     *
+     * @return void
+     */
     protected static function boot()
     {
         parent::boot();
-        static::saving( fn($query) => $query->slug = Str::slug($query->name));
+        static::saving( fn($query) => $query->slug = Str::slug($query->title));
         static::addGlobalScope(new CreatedAt);
     }
 
-    /**
-     * Trim and convert the first letter to upper case
-     *
-     * @param string $value
-     * @return void
-     */
-    public function setNameAttribute($value)
-    {
-        $this->attributes['name'] = trim(strtolower($value));
-    }
 
     /**
      * Trim and convert the first letter to upper case
@@ -54,17 +48,6 @@ class Page extends Model
     public function getTitleAttribute($value)
     {
         return ucwords($value);
-    }
-
-    /**
-     * Get value in title
-     *
-     * @param string $value
-     * @return void
-     */
-    public function getNameAttribute($value)
-    {
-        return ucfirst($value);
     }
 
     /**
