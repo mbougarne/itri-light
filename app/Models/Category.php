@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Scopes\CreatedAt;
 
-class Page extends Model
+class Category extends Model
 {
     /**
      * The attributes that aren't mass assignable.
@@ -35,28 +35,6 @@ class Page extends Model
     }
 
     /**
-     * Trim and convert the first letter to upper case
-     *
-     * @param string $value
-     * @return void
-     */
-    public function setTitleAttribute($value)
-    {
-        $this->attributes['title'] = trim(strtolower($value));
-    }
-
-    /**
-     * Get value in title
-     *
-     * @param string $value
-     * @return void
-     */
-    public function getTitleAttribute($value)
-    {
-        return ucwords($value);
-    }
-
-    /**
      * Get value in title
      *
      * @param string $value
@@ -68,23 +46,12 @@ class Page extends Model
     }
 
     /**
-     * Get thumbnail
-     *
-     * @param string $value
-     * @return void
-     */
-    public function getThumbnailAttribute($value)
-    {
-        return ($value) ? 'thumbnails/' . $value : 'img/default-thumbnail.png';
-    }
-
-    /**
-     * Post categories
+     * Category posts
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function categories()
+    public function posts()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Post::class);
     }
 }
