@@ -17,4 +17,13 @@ class AppInstallController
     {
 
     }
+
+    protected function extractUser($request)
+    {
+        return [
+            'username' => $username,
+            'email' => $email,
+            'password' => $password,
+        ][$request];
+    }
 }
