@@ -13,7 +13,7 @@ class InstallApplication extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class InstallApplication extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => 'required|email',
+            'username' => 'required',
+            'password' => 'required|min:8',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'admin_email' => 'required|email',
+            'logo' => 'required|image|max:5000',
         ];
     }
 }

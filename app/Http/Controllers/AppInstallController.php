@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InstallApplication;
+use App\Models\{User, Profile, Setting};
 
 class AppInstallController
 {
@@ -16,5 +17,4 @@ class AppInstallController
     {
 
     }
-
 }

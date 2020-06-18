@@ -21,7 +21,8 @@ class CreateSettingsTable extends Migration
             $table->string('favicon')->nullable();
             $table->string('header_scripts')->nullable();
             $table->string('footer_scripts')->nullable();
-            $table->string('language')->nullable();
+            $table->string('language')->default('en');
+            $table->string('admin_email')->nullable();
             $table->timestamps();
         });
     }
