@@ -13,6 +13,6 @@ class All
      */
     public function __invoke()
     {
-        //
+        return view('default.dashboard.contacts.index', ['contacts' => Contact::paginate()]);
     }
 }

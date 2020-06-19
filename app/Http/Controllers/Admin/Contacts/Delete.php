@@ -14,6 +14,7 @@ class Delete
      */
     public function __invoke(Contact $contact)
     {
-        //
+        $contact->delete();
+        return redirect()->route('contacts')->with('success', 'Contact has deleted');
     }
 }

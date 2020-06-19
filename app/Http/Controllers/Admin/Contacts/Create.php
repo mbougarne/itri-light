@@ -2,29 +2,20 @@
 
 namespace App\Http\Controllers\Admin\Contacts;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateContact;
 use App\Models\Contact;
 
 class Create
 {
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateContact  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function __invoke(CreateContact $request)
     {
-        //
+        Contact::create($request->validated());
+        return redirect()->back()->with('success', 'Thank You!!! We received your message');
     }
 }
