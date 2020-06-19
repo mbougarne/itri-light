@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin\Posts;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
+use App\Services\StoreFileService as StoreFile;
+use App\Http\Requests\CreatePost;
 
 class Create
 {
@@ -14,7 +15,7 @@ class Create
      */
     public function create()
     {
-        //
+        return view('default.dashboard.posts.create');
     }
 
     /**
@@ -23,8 +24,17 @@ class Create
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePost $request)
     {
-        //
+        $data = $request->validated();
+
+        if($request->hasFile('thumbnail'))
+        {
+            $data['thumbnail'] = StoreFile::store($request, 'thumbnail', 'thumbnails');
+        }
+
+        Post::create($data);
+
+        return redirect()->route('posts')->with('success', "Post has created");
     }
 }

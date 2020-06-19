@@ -14,6 +14,8 @@ class Delete
      */
     public function __invoke(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts')->with('success', 'Post has deleted');
     }
 }

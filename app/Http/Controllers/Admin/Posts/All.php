@@ -13,6 +13,6 @@ class PostController extends Controller
      */
     public function __invoke()
     {
-        //
+        return view('default.dashboard.posts.index', ['posts' => Post::all()]);
     }
 }
