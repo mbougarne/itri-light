@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Pages;
 
+use App\Http\Requests\UpdatePage;
+use App\Services\StoreFileService as StoreFile;
 use App\Models\Page;
-use Illuminate\Http\Request;
 
 class Update
 {
@@ -15,18 +16,27 @@ class Update
      */
     public function edit(Page $page)
     {
-        //
+        return view('default.dashboard.pages.update', ['page' => $page]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UpdatePage  $request
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(UpdatePage $request, Page $page)
     {
-        //
+        $data = $request->validated();
+
+        if($request->hasFile('thumbnail'))
+        {
+            $data['thumbnail'] = StoreFile::store($request, 'thumbnail', 'thumbnails');
+        }
+
+        $page->update($data);
+
+        return redirect()->route('pages').with('success', 'Page has updated');
     }
 }

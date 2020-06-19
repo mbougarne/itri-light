@@ -14,6 +14,8 @@ class Delete
      */
     public function __invoke(Page $page)
     {
-        //
+        $page->delete();
+
+        return redirect()->route('pages')->with('success', "The page has deleted");
     }
 }
