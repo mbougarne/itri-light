@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Categories;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateCategory;
 use App\Models\Category;
 
 class Create
@@ -14,17 +14,18 @@ class Create
      */
     public function create()
     {
-        //
+        return view('default.dashboard.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreateCategory  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategory $request)
     {
-        //
+        Category::create($request->validated());
+        return redirect()->route('categories')->with('success', 'Category has created');
     }
 }

@@ -14,6 +14,7 @@ class Delete
      */
     public function __invoke(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories')->with('success', 'Category has deleted');
     }
 }

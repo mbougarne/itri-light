@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Categories;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateCategory;
 use App\Models\Category;
 
 class Update
@@ -15,18 +15,19 @@ class Update
      */
     public function edit(Category $category)
     {
-        //
+        return view('default.dashboard.categories.update', ['category' => $category]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UpdateCategory  $request
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategory $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+        return redirect()->route('categories')->with('success', 'Category has updated');
     }
 }

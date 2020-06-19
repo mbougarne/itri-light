@@ -13,6 +13,6 @@ class All
      */
     public function __invoke()
     {
-        //
+        return view('default.dashboard.categories.index', ['categories' => Category::all()]);
     }
 }
