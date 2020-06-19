@@ -3,18 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
-use App\Models\{User, Profile, Setting};
+use Illuminate\Support\Facades\Hash;
+
 use App\Http\Requests\InstallApplication;
+use App\Models\{User, Profile, Setting};
 
 class AppInstallController
 {
+    /**
+     * Get installation page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function install()
+    {
+        return response('done!', 200);
+    }
+
     /**
      * Install the application
      *
      * @param \App\Http\Requests\InstallApplication $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(InstallApplication $request)
+    public function store(InstallApplication $request)
     {
         $this->createUser($request->validated());
         $this->saveSettings($request);
@@ -57,7 +69,7 @@ class AppInstallController
         return [
             'username' => $request['username'],
             'email' => $request['email'],
-            'password' => $request['password'],
+            'password' => Hash::make($request['password']),
         ];
     }
 

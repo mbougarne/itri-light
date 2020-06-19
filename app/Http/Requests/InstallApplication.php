@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 
 class InstallApplication extends FormRequest
@@ -15,7 +14,7 @@ class InstallApplication extends FormRequest
      */
     public function authorize()
     {
-        return (Schema::hasTable('users')) && User::count() !== 0;
+        return User::count() === 0;
     }
 
     /**
