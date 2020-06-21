@@ -33,11 +33,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->mapAdminRoutes();
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
-
-        //
     }
 
     /**
@@ -65,5 +63,17 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api')
             ->middleware('api')
             ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "dashboard" routes for the application.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        Route::prefix('dashboard')
+            ->middleware(['web', 'app.install', 'auth'])
+            ->group(base_path('routes/dashboard.php'));
     }
 }
