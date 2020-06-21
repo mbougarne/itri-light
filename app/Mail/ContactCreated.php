@@ -37,8 +37,8 @@ class ContactCreated extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->from( env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME') )
-                ->to(env('MAIL_ADMIN_ADDRESS'))
+        return $this->from( $this->contact->email, env('MAIL_FROM_NAME') )
+                ->to(app_admin_email())
                 ->subject($this->contact->subject)
                 ->markdown('emails.contacts.created', ['contact' => $this->contact]);
     }

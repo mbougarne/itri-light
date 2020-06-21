@@ -33,7 +33,7 @@ class ContactSentReply extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->from('')
+        return $this->from(app_admin_email(), env('APP_NAME'))
                     ->subject($this->reply['subject'])
                     ->markdown('emails.contacts.reply', $this->reply);
     }

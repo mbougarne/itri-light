@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Contacts;
 
 use App\Models\Contact;
 
-class All
+class Single
 {
     /**
      * Display the specified resource.
