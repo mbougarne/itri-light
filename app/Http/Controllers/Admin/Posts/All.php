@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Posts;
 
 use App\Models\Post;
 
-class PostController extends Controller
+class All
 {
     /**
      * Display a listing of the resource.
