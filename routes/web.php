@@ -17,8 +17,9 @@ use App\Http\Controllers\Guest\{Pages, Posts};
 |
 */
 
-Route::get('/install', [Install::class, 'install']);
-Route::post('/install', [Install::class, 'store']);
+
+Route::get('/install', [Install::class, 'install'])->name('install');
+Route::post('/install', [Install::class, 'store'])->name('install');
 
 Route::group(['middleware' => ['guest', 'app.install']], function () {
     # Admin login
