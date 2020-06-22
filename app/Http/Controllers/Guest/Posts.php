@@ -6,6 +6,12 @@ use App\Models\{Post, Category};
 
 class Posts
 {
+    /**
+     * Single post
+     *
+     * @param \App\Models\Post $post
+     * @return \Illuminate\Http\Response
+     */
     public function single(Post $post)
     {
         $data = [
@@ -17,10 +23,10 @@ class Posts
     }
 
     /**
-     * Undocumented function
+     * Category posts
      *
-     * @param Category $category
-     * @return void
+     * @param \App\Models\Category $category
+     * @return \Illuminate\Http\Response
      */
     public function category(Category $category)
     {

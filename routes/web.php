@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AppInstallController as Install;
+use App\Http\Controllers\Admin\Login;
+use App\Http\Controllers\Guest\{Pages, Posts};
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,25 @@ use App\Http\Controllers\AppInstallController as Install;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/install', [Install::class, 'install']);
 Route::post('/install', [Install::class, 'store']);
+
+Route::group(['middleware' => ['guest', 'app.install']], function () {
+    # Admin login
+    Route::group(['prefix' => 'login'], function () {
+        Route::get('/', [Login::class, 'getLogin'])->name('admin.login');
+        Route::post('/', [Login::class, 'login'])->name('admin.login');
+    });
+    # Posts
+    Route::group(['prefix' => 'posts'], function () {
+        Route::get('/{post}', [Posts::class, 'single'])->name('posts.post');
+    });
+    # Categories
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/{category}', [Posts::class, 'category'])->name('categories.posts');
+    });
+    # Pages
+    Route::get('/', [Pages::class, 'home'])->name('pages.home');
+    Route::get('/contact', [Pages::class, 'contact'])->name('pages.contact');
+    Route::get('/{page}', [Pages::class, 'single'])->name('pages.single');
+});

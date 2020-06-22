@@ -17,10 +17,11 @@ class IsAppInstalled
      */
     public function handle($request, Closure $next)
     {
-        if(Schema::hasTable('users') && User::count() === 0)
+        if(Schema::hasTable('users') && User::count() !== 0)
         {
-            return redirect()->route('install')->with('Whooo!!! Install the app');
+            return $next($request);
         }
-        return $next($request);
+
+        return redirect()->route('install')->with('Whooo!!! Install the app');
     }
 }
