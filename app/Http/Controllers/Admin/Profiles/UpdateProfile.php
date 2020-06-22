@@ -33,6 +33,6 @@ class UpdateProfile
 
         $profile->update($data);
 
-        return redirect()->route('users.profile.update')->with('success', 'Profile has updated');
+        return redirect()->back()->with('success', 'Profile has updated');
     }
 }

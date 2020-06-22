@@ -30,21 +30,10 @@ class UpdateUser
     {
         $data = $request->validated();
 
-        if($request->has('password')) $data['password'] = $this->changePassword($data['password']);
+        if($request->has('password')) $data['password'] = Hash::make($data['password']);
 
         $user->update($data);
 
-        return redirect()->route('users.update')->with('success', 'User has updated');
-    }
-
-    /**
-     * Update Password
-     *
-     * @param string $password
-     * @return string
-     */
-    protected function changePassword(string $password) : string
-    {
-        return Hash::make($password);
+        return redirect()->back()->with('success', 'User has updated');
     }
 }
