@@ -24,8 +24,8 @@ Route::post('/install', [Install::class, 'store'])->name('install');
 Route::group(['middleware' => ['guest', 'app.install']], function () {
     # Admin login
     Route::group(['prefix' => 'login'], function () {
-        Route::get('/', [Login::class, 'getLogin'])->name('admin.login');
-        Route::post('/', [Login::class, 'login'])->name('admin.login');
+        Route::get('/', [Login::class, 'getLogin'])->name('login');
+        Route::post('/', [Login::class, 'login'])->name('login');
     });
     # Posts
     Route::group(['prefix' => 'posts'], function () {

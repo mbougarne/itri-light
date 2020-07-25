@@ -22,6 +22,6 @@ class IsAppInstalled
             return $next($request);
         }
 
-        return redirect()->route('install')->with('Whooo!!! Install the app');
+        return redirect()->route('install')->with('success', 'Install the app');
     }
 }

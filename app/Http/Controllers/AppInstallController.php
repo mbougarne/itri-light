@@ -17,7 +17,7 @@ class AppInstallController
      */
     public function install()
     {
-        return response('done!', 200);
+        return view('default.front.install');
     }
 
     /**
@@ -44,6 +44,7 @@ class AppInstallController
         $user = User::create($this->extractUser($userData));
         $profile = array_merge($this->extractProfile($userData), ['user_id' => $user->id]);
         Profile::create($profile);
+        auth()->login($user);
     }
 
     /**

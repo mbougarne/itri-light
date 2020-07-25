@@ -9,7 +9,7 @@
     <meta name="description" content="{{ $description ?? '' }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Mourad Bougarne {{ $shared['title'] ?? ' '}}</title>
+    <title>{{ $title ?? 'Mourad Bougarne'}}</title>
 
     {{-- Open graph --}}
     <meta property="og:title" content="{{ $shared['title'] ?? env('APP_NAME') }}" />
