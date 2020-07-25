@@ -40,3 +40,5 @@ Route::group(['middleware' => ['guest', 'app.install']], function () {
     Route::get('/contact', [Pages::class, 'contact'])->name('pages.contact');
     Route::get('/{page}', [Pages::class, 'single'])->name('pages.single');
 });
+
+Route::fallback( fn() => abort(404));

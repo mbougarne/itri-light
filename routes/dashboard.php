@@ -32,7 +32,7 @@ use App\Http\Controllers\Admin\Contacts\{
 };
 
 use App\Http\Controllers\Admin\Profiles\{UpdateProfile, UpdateUser};
-use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\{SettingController, Dashboard};
 
 /**
  * ----------------------------------------------------------------------------
@@ -92,3 +92,5 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/', [SettingController::class, 'edit'])->name('settings.update');
     Route::post('/', [SettingController::class, 'update'])->name('settings.update');
 });
+
+Route::get('/', Dashboard::class)->name('dashboard');

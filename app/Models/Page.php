@@ -77,14 +77,4 @@ class Page extends Model
     {
         return ($value) ? 'thumbnails/' . $value : 'img/default-thumbnail.png';
     }
-
-    /**
-     * Post categories
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
 }

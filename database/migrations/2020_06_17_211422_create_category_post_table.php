@@ -19,6 +19,7 @@ class CreateCategoryPostTable extends Migration
             $table->unsignedBigInteger('post_id')->nullable();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('set null');
         });
     }
 
