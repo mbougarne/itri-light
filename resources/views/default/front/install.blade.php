@@ -59,10 +59,10 @@
                                         <input
                                             type="email"
                                             name="email"
-                                            id="name"
+                                            id="email"
                                             class="form-control @error('email') is-invalid @enderror"
                                             required>
-                                        @error('username')
+                                        @error('email')
                                             <span class="invalid-feedback">
                                                 {{ $message }}
                                             </span>
@@ -172,7 +172,15 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- First and Last Name --}}
+                                {{-- App details --}}
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <h5 class="text-muted">
+                                            Application details
+                                        </h5>
+                                    </div>
+                                </div>
+                                {{-- Title / Description / Logo --}}
                                 <div class="form-group row">
                                     {{-- Title --}}
                                     <div class="col-md-4">

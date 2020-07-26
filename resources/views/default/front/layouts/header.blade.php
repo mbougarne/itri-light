@@ -12,7 +12,7 @@
     <title>{{ $title ?? 'Mourad Bougarne'}}</title>
 
     {{-- Open graph --}}
-    <meta property="og:title" content="{{ $shared['title'] ?? env('APP_NAME') }}" />
+    <meta property="og:title" content="{{ $title ?? env('APP_NAME') }}" />
     <meta property="og:og:description " content="{{ $description ?? '' }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ env('APP_URL') }}" />
@@ -38,4 +38,6 @@
     {{-- Main Container --}}
 	<div id="colorlib-page">
         {{-- Sidebar --}}
-        @include('name')
+        @include('default.front.layouts.sidebar')
+        {{-- Main Content --}}
+        <div id="colorlib-main">
