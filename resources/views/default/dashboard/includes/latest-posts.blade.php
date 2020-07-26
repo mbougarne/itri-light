@@ -11,61 +11,36 @@
 @forelse ($posts as $post)
     <div class="row">
         <!-- Post container -->
-        <div class="col-12">
+        <div class="col-md-4">
             <article class="blog-entry ftco-animate">
+                <!-- Post Title -->
+                <h5>
+                    <a href="{{ route('posts.update', $post->id) }}" class="text-dark">
+                        {{ $post->title }}
+                    </a>
+                </h5>
                 <!-- Thumbnail -->
-                <div class="col-md-4 col-sm-6">
+                <a
+                    href="{{ route('posts.update', $post->id) }}"
+                    class="img img-2"
+                    style="background-image: url({{ asset($post->thumbnail) }});"></a>
+                <!-- Post preview -->
+                <div class="text text-2 pt-2 mt-3">
+                    <!-- Post Category -->
+                    <span class="category mb-3 d-block">
+                        @foreach ($post->categories as $category)
+                            <a href="{{ route('categories.update', $category->id) }}">
+                                {{ $category->name }}
+                            </a>
+                        @endforeach
+                    </span>
+                    <!-- Continue reading -->
                     <a
                         href="{{ route('posts.update', $post->id) }}"
-                        class="img img-2"
-                        style="background-image: url({{ asset($post->thumbnail) }});"></a>
-                </div>
-                <!-- Post preview -->
-                <div class="col-md-8 col-sm-6">
-                    <div class="text text-2 pt-2 mt-3">
-                        <!-- Post Category -->
-                        <span class="category mb-3 d-block">
-                            @foreach ($post->categories as $category)
-                                <a href="{{ route('categories.update', $category->id) }}">
-                                    {{ $category->name }}
-                                </a>
-                            @endforeach
-                        </span>
-                        <!-- Post Title -->
-                        <h3 class="mb-4">
-                            <a href="{{ route('posts.update', $post->id) }}">
-                                {{ $post->title }}
-                            </a>
-                        </h3>
-                        <!-- Post Excerpt / description -->
-                        <p class="mb-4">
-                            {{ $post->description }}
-                        </p>
-                        <!-- Created By and On -->
-                        <div class="author mb-4 d-flex align-items-center">
-                            <a href="#" class="img" style="background-image: url(images/person_2.jpg);"></a>
-                            <div class="ml-3 info">
-                                <h3>
-                                    <!-- Created date -->
-                                    <span class="d-block">
-                                        <small>On </small>
-                                        <span>{{ $post->created_at->toDayDateTimeString() }}</span>
-                                    </span>
-                                </h3>
-                            </div>
-                        </div>
-                        <!-- Continue reading -->
-                        <div class="meta-wrap align-items-center">
-                            <div class="half">
-                                <p>
-                                    <a href="#" class="btn py-2 float-right">
-                                        UPDATE
-                                        <i class="icon-pencil"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                </div>
+                        class="btn btn-block btn-round btn-primary">
+                        UPDATE
+                        <i class="icon-pencil"></i>
+                    </a>
                 </div>
             </article>
         </div>
