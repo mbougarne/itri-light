@@ -16,17 +16,23 @@
         </a>
         <br>
         {{-- User --}}
-        <a href="{{ route('user.update') }}">
-            <i class="icon user"></i>
-        </a>
+        <small>
+            <a href="{{ route('user.update') }}" class="text-sm">
+                <i class="icon-user"></i>
+            </a>
+        </small>
         {{-- Profile --}}
-        <a href="{{ route('profile.update') }}">
-            <i class="icon-profile"></i>
-        </a>
+        <small>
+            <a href="{{ route('profile.update') }}" class="text-sm">
+                <i class="icon-file-text"></i>
+            </a>
+        </small>
         {{-- Settings --}}
-        <a href="{{ route('settings.update') }}">
-            <i class="icon-cog"></i>
-        </a>
+        <small>
+            <a href="{{ route('settings.update') }}" class="text-sm">
+                <i class="icon-cog"></i>
+            </a>
+        </small>
     </h1>
 
     <nav id="colorlib-main-menu" role="navigation">
@@ -52,4 +58,22 @@
             </li>
         </ul>
     </nav>
+    <!-- Social Media -->
+    <div class="colorlib-footer">
+        <!-- Footer -->
+        <footer>
+            <div class="colorlib-footer text-center">
+                <p>
+                    <small>
+                        Copyright &copy; {{ now()->year }} All rights reserved
+                        |
+                        This template is made with
+                        <i class="icon-heart" aria-hidden="true"></i>
+                        by
+                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </small>
+                </p>
+            </div>
+        </footer>
+    </div>
 </aside>
