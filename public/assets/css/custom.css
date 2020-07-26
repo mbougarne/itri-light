@@ -1,3 +1,6 @@
 .text-sm{
     font-size: 1rem;
 }
+.height-auto{
+    height: auto;
+}

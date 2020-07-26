@@ -22,7 +22,6 @@
     @yield('article_ogp')
 
 	<link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/icomoon.css') }}">

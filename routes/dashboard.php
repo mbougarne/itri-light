@@ -93,4 +93,5 @@ Route::group(['prefix' => 'settings'], function () {
     Route::post('/', [SettingController::class, 'update'])->name('settings.update');
 });
 
-Route::get('/', Dashboard::class)->name('dashboard');
+Route::get('/', [Dashboard::class, 'home'])->name('dashboard');
+Route::post('/upload-image', [Dashboard::class, 'uploadImage'])->name('editor.upload.image');
