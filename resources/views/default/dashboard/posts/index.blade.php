@@ -5,7 +5,7 @@
 <!-- Posts -->
 <div class="row">
     <div class="col-sm-12 col-md-8">
-        <h3 class="mb-4">Latest Posts</h3>
+        <h3 class="mb-4">Posts</h3>
         <p>
             <small>Manage your posts</small>
         </p>
@@ -45,7 +45,8 @@
                             </h5>
                             <!-- Update post -->
                             <p>
-                                <a href="#" class="btn py-2 text-success float-right">
+                                <a href="{{ route('posts.update', $post->id) }}"
+                                    class="btn py-2 btn-primary">
                                     UPDATE <i class="icon-pencil"></i>
                                 </a>
                             </p>

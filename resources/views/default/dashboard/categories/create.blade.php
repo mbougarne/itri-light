@@ -40,7 +40,7 @@
                 <div class="card-footer bg-white">
                     <div class="form-group">
                         @csrf
-                        <button class="btn btn-lg btn-success shadow-sm float-right">
+                        <button class="btn btn-lg btn-primary shadow-sm float-right">
                             Create <i class="fas fa-plus"></i>
                         </button>
                     </div>
