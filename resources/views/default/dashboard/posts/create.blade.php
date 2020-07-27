@@ -51,6 +51,27 @@
                                 id="description">{{ old('description') }}</textarea>
                         </div>
                     </div>
+                    {{-- Categories --}}
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <label>Select Categories</label>
+                        </div>
+                        <div class="col-12">
+                            @forelse ($categories as $category)
+                                <label for="{{ $category->name }}">
+                                    <input
+                                        type="checkbox"
+                                        name="categories[]"
+                                        id="category"
+                                        value="{{ $category->id }}"> {{ $category->name }}
+                                </label>
+                            @empty
+                                <a href="{{ route('categories.create') }}" class="btn btn-link">
+                                    Create new one <i class="icon-pencil"></i>
+                                </a>
+                            @endforelse
+                        </div>
+                    </div>
                     {{-- Body --}}
                     <div class="form-group row align-items-center">
                         <div class="col-12">
