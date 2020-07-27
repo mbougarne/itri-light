@@ -11,6 +11,7 @@
         <!-- JavaScript / Scrips -->
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery-migrate-3.0.1.min.js') }}"></script>
+        <script src="{{ asset('assets/izitoast/js/iziToast.min.js') }}"></script>
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
@@ -23,5 +24,8 @@
         @yield('custom_scripts')
         {{-- Footer Scripts --}}
         {{ $shared['footer_scripts'] }}
+        {{-- Errors --}}
+        @include('notify.error')
+        @include('notify.success')
     </body>
 </html>

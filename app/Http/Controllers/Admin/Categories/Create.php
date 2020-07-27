@@ -14,7 +14,7 @@ class Create
      */
     public function create()
     {
-        return view('default.dashboard.categories.create');
+        return view('default.dashboard.categories.create', ['title' => 'Create New Category']);
     }
 
     /**
