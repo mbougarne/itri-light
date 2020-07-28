@@ -9,14 +9,16 @@
     <meta name="description" content="{{ $description ?? '' }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Mourad Bougarne {{ $shared['title'] ?? ' '}}</title>
+    <title>Mourad Bougarne &mdash; {{ $title ?? ' '}}</title>
 
     {{-- Open graph --}}
     <meta property="og:title" content="{{ $shared['title'] ?? env('APP_NAME') }}" />
     <meta property="og:og:description " content="{{ $description ?? '' }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ env('APP_URL') }}" />
-    <meta property="og:image" content="{{ $shared['logo'] ?? '' }}" />
+    <meta property="og:image" content="{{ asset($shared['logo']) ?? '' }}" />
+
+    <link rel="shortcut icon" href="{{ asset($shared['favicon']) ?? asset('favicon.ico') }}" type="image/x-icon">
 
     {{-- Single Post Open Graph --}}
     @yield('article_ogp')

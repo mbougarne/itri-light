@@ -11,12 +11,14 @@ class SettingController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Setting $setting)
+    public function edit()
     {
-        return view('default.dashboard.settings.update', ['setting' => $setting]);
+        return view('default.dashboard.settings.update', [
+                'title' => 'Update Settings',
+                'setting' => Setting::first()
+            ]);
     }
 
     /**
@@ -26,15 +28,15 @@ class SettingController
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAppSettings $request, Setting $setting)
+    public function update(UpdateAppSettings $request)
     {
         $data = $request->validated();
 
         if($request->hasFile('logo')) $data['logo'] = StoreFile::store($request, 'logo', 'logos');
         if($request->hasFile('favicon')) $data['favicon'] = StoreFile::store($request, 'favicon', 'logos');
 
-        $setting->update($data);
+        Setting::first()->update($data);
 
-        return redirect()->route('settings')->with('success', 'Setting has updated');
+        return redirect()->route('settings.update')->with('success', 'Setting has updated');
     }
 }

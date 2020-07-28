@@ -12,7 +12,7 @@
 
     <h1 id="colorlib-logo">
         <a href="{{ route('dashboard') }}">
-            {{ env('APP_NAME') }}<span>.</span>
+            {{ ($shared['title']) ? $shared['title'] : env('APP_NAME') }}<span>.</span>
         </a>
         <br>
         {{-- User --}}

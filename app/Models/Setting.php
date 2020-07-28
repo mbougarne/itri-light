@@ -54,7 +54,7 @@ class Setting extends Model
      */
     public function getLogoAttribute($value)
     {
-        return ($value) ? 'logo/' . $value : 'img/default-logo.png';
+        return ($value) ? 'uploads/logos/' . $value : '';
     }
 
     /**
@@ -65,6 +65,6 @@ class Setting extends Model
      */
     public function getFaviconAttribute($value)
     {
-        return ($value) ? 'logo/' . $value : 'favicon.png';
+        return ($value) ? 'uploads/logos/' . $value : '';
     }
 }
