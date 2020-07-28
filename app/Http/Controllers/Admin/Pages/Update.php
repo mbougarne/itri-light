@@ -16,7 +16,10 @@ class Update
      */
     public function edit(Page $page)
     {
-        return view('default.dashboard.pages.update', ['page' => $page]);
+        return view('default.dashboard.pages.update', [
+                'title' => 'Create New Page',
+                'page' => $page,
+            ]);
     }
 
     /**
@@ -37,6 +40,6 @@ class Update
 
         $page->update($data);
 
-        return redirect()->route('pages').with('success', 'Page has updated');
+        return redirect()->route('pages')->with('success', 'Page has updated');
     }
 }

@@ -40,7 +40,7 @@
                             <!-- Post Title -->
                             <h5 class="mb-4">
                                 <a href="{{ route('posts.update', $page->id) }}">
-                                    {{ $page->title }}
+                                    {{ $page->name }}
                                 </a>
                                 <small class="text-muted">
                                     {{ $page->created_at->toDayDateTimeString() }}

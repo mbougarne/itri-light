@@ -14,7 +14,7 @@ class UpdatePage extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:pages,id' . $this->route('page')->id,
+            'name' => 'required|unique:pages,id,' . $this->route('page')->id,
             'title' => 'sometimes|nullable',
             'description' => 'sometimes|nullable',
             'body' => 'required',

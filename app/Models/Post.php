@@ -58,7 +58,7 @@ class Post extends Model
      */
     public function getThumbnailAttribute($value)
     {
-        return ($value) ? 'uploads/thumbnails/' . $value : 'img/default-thumbnail.png';
+        return ($value) ? 'uploads/thumbnails/' . $value : 'img/default-thumbnail.jpg';
     }
 
     /**

@@ -15,7 +15,9 @@ class Create
      */
     public function create()
     {
-        return view('default.dashboard.pages.create');
+        return view('default.dashboard.pages.create', [
+            'title' => 'Create New Page'
+        ]);
     }
 
     /**
