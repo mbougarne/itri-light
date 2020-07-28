@@ -13,6 +13,9 @@ class All
      */
     public function __invoke()
     {
-        return view('default.dashboard.pages.index', ['pages' => Page::all()]);
+        return view('default.dashboard.pages.index', [
+                'title' => 'Pages',
+                'pages' => Page::paginate(8)
+            ]);
     }
 }
