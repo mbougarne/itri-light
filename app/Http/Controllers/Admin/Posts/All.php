@@ -15,7 +15,7 @@ class All
     {
         return view('default.dashboard.posts.index', [
                 'title' => 'Posts',
-                'posts' => Post::all()
+                'posts' => Post::paginate(8)
             ]);
     }
 }

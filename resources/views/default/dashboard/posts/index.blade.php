@@ -23,7 +23,7 @@
     <div class="row">
         <!-- Post container -->
         <div class="col-12">
-            <article class="blog-entry ftco-animate">
+            <article class="mb-2 ftco-animate">
                 <div class="row">
                     <!-- Thumbnail -->
                     <div class="col-md-3 col-sm-4">
@@ -42,6 +42,9 @@
                                 <a href="{{ route('posts.update', $post->id) }}">
                                     {{ $post->title }}
                                 </a>
+                                <small class="text-muted">
+                                    {{ $post->created_at->toDayDateTimeString() }}
+                                </small>
                             </h5>
                             <!-- Update post -->
                             <p>
@@ -65,5 +68,10 @@
         </div>
     </div>
 @endforelse
+
+{{-- Links --}}
+<div class="pagination">
+    {{ $posts->links() }}
+</div>
 
 @endsection

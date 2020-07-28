@@ -4,3 +4,17 @@
 .height-auto{
     height: auto;
 }
+.pagination,
+.pagination nav{
+    margin: 1.2rem auto;
+    text-align: center;
+}
+.pagination .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #f05e24;
+    border-color: #f05e24;
+}
+.pagination .page-link{
+    color: #f05e24;
+}
