@@ -58,8 +58,8 @@
             </li>
         </ul>
     </nav>
-    <!-- Social Media -->
-    <div class="colorlib-footer">
+    <!-- Footer -->
+    <div class="mt-3 pt-2">
         <!-- Footer -->
         <footer>
             <div class="colorlib-footer text-center">

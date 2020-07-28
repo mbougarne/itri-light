@@ -11,8 +11,8 @@ class Dashboard
     public function home()
     {
         $data = [
-            'posts' => Post::latest()->limit(5)->get(),
-            'contacts' => Contact::latest()->limit(5)->get(),
+            'posts' => Post::latest()->limit(3)->get(),
+            'contacts' => Contact::latest()->limit(3)->get(),
         ];
 
         return view('default.dashboard.home', $data);
