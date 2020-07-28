@@ -8,43 +8,35 @@
     </div>
 </div>
 
-@forelse ($posts as $post)
+@forelse ($posts->chunk(3) as $chunks)
     <div class="row">
-        <!-- Post container -->
-        <div class="col-md-4">
-            <article class="blog-entry ftco-animate">
-                <!-- Post Title -->
-                <h5>
-                    <a href="{{ route('posts.update', $post->id) }}" class="text-dark">
-                        {{ $post->title }}
-                    </a>
-                </h5>
-                <!-- Thumbnail -->
-                <a
-                    href="{{ route('posts.update', $post->id) }}"
-                    class="img img-2"
-                    style="background-image: url({{ asset($post->thumbnail) }});"></a>
-                <!-- Post preview -->
-                <div class="text text-2 pt-2 mt-3">
-                    <!-- Post Category -->
-                    <span class="category mb-3 d-block">
-                        @foreach ($post->categories as $category)
-                            <a href="{{ route('categories.update', $category->id) }}">
-                                {{ $category->name }}
-                            </a>
-                        @endforeach
-                    </span>
-                    <!-- Continue reading -->
+        @foreach ($chunks as $post)
+            <!-- Post container -->
+            <div class="col-md-4">
+                <article class="blog-entry ftco-animate">
+                    <!-- Update -->
                     <a
                         href="{{ route('posts.update', $post->id) }}"
-                        class="btn btn-block btn-round btn-primary">
-                        UPDATE
-                        <i class="icon-pencil"></i>
+                        class="btn btn-block btn-primary mb-2">
+                        UPDATE <i class="icon-pencil"></i>
                     </a>
-                </div>
-            </article>
-        </div>
-        <!-- End of post container -->
+                    <!-- Thumbnail -->
+                    <a href="{{ route('posts.update', $post->id) }}">
+                        <img src="{{ asset($post->thumbnail) }}" class="img-fluid">
+                    </a>
+                    <!-- Post preview -->
+                    <div class="text text-2 pt-2 mt-3">
+                        <!-- Post Title -->
+                        <p class="mb-3">
+                            <a href="{{ route('posts.update', $post->id) }}" class="text-dark">
+                                {{ $post->title }}
+                            </a>
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <!-- End of post container -->
+        @endforeach
     </div>
 @empty
     <div class="row">
