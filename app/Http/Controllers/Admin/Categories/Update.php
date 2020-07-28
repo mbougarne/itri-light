@@ -15,7 +15,10 @@ class Update
      */
     public function edit(Category $category)
     {
-        return view('default.dashboard.categories.update', ['category' => $category]);
+        return view('default.dashboard.categories.update', [
+                'category' => $category,
+                'title' => 'Update ' . $category->name . ' Category'
+            ]);
     }
 
     /**

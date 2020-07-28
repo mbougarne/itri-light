@@ -15,7 +15,10 @@ class Create
      */
     public function create()
     {
-        return view('default.dashboard.posts.create', ['categories' => Category::all()]);
+        return view('default.dashboard.posts.create', [
+                'title' => 'Create New Post',
+                'categories' => Category::all()
+            ]);
     }
 
     /**
@@ -33,16 +36,19 @@ class Create
             $data['thumbnail'] = StoreFile::store($request, 'thumbnail', 'thumbnails');
         }
 
-        if(in_array('categories', $data))
+        if($request->has('categories'))
         {
             $categories = $data['categories'];
             unset($data['categories']);
-        }
 
-        $post = Post::create($data);
+            $post = Post::create($data);
 
-        if(isset($categories)) {
-            $post->async($categories);
+            $post->categories()->sync($categories);
+
+        } else {
+
+            Post::create($data);
+
         }
 
         return redirect()->route('posts')->with('success', "Post has created");

@@ -13,6 +13,9 @@ class All
      */
     public function __invoke()
     {
-        return view('default.dashboard.posts.index', ['posts' => Post::all()]);
+        return view('default.dashboard.posts.index', [
+                'title' => 'Posts',
+                'posts' => Post::all()
+            ]);
     }
 }

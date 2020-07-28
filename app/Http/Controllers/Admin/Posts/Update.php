@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Posts;
 
-use App\Models\Post;
+use App\Http\Requests\UpdatePost;
+use App\Models\{Post, Category};
 use App\Http\Requests\UpdateUser;
 use App\Services\StoreFileService as StoreFile;
 
@@ -16,7 +17,12 @@ class Update
      */
     public function edit(Post $post)
     {
-        return view('default.dashboard.posts.update', ['post' => $post]);
+        return view('default.dashboard.posts.update', [
+                'post' => $post,
+                'title' => 'Update ' . $post->title,
+                'categories_ids' => $post->categories()->allRelatedIds()->toArray(),
+                'categories' => Category::all()
+            ]);
     }
 
     /**
@@ -26,13 +32,20 @@ class Update
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUser $request, Post $post)
+    public function update(UpdatePost $request, Post $post)
     {
         $data = $request->validated();
 
         if($request->hasFile('thumbnail'))
         {
             $data['thumbnail'] = StoreFile::store($request, 'thumbnail', 'thumbnails');
+        }
+
+        if($request->has('categories'))
+        {
+            $categories = $data['categories'];
+            unset($data['categories']);
+            $post->categories()->sync($categories);
         }
 
         $post->update($data);

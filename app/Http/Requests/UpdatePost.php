@@ -19,6 +19,7 @@ class UpdatePost extends FormRequest
             'body' => 'required',
             'thumbnail' => 'sometimes|nullable|image|max:5000',
             'is_published' => 'sometimes',
+            'categories' => 'sometimes'
         ];
     }
 }
