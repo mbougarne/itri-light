@@ -4,35 +4,35 @@ namespace App\Http\Controllers\Admin\Profiles;
 
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateUser as UserRequest;
-use App\Models\User;
 
 class UpdateUser
 {
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
-        return view('default.dashboard.users.update', ['user' => $user]);
+        return view('default.dashboard.users.update', [
+                    'title' => 'Update Your Account',
+                    'user' => auth()->user()
+                ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request)
     {
         $data = $request->validated();
 
         if($request->has('password')) $data['password'] = Hash::make($data['password']);
 
-        $user->update($data);
+        auth()->user()->update($data);
 
         return redirect()->back()->with('success', 'User has updated');
     }
