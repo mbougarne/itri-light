@@ -11,6 +11,7 @@ class Dashboard
     public function home()
     {
         $data = [
+            'title' => 'Dashboard',
             'posts' => Post::latest()->limit(3)->get(),
             'contacts' => Contact::latest()->limit(3)->get(),
         ];

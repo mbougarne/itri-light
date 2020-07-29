@@ -37,23 +37,23 @@
 
     <nav id="colorlib-main-menu" role="navigation">
         <ul>
-            <li class="colorlib-active">
+            <li {!! active_route('dashboard') !!}>
                 <a href="{{ route('dashboard') }}">Dashboard</a>
             </li>
 
-            <li>
+            <li {!! active_route('posts') !!}>
                 <a href="{{ route('posts') }}">Posts</a>
             </li>
 
-            <li>
+            <li {!! active_route('categories') !!}>
                 <a href="{{ route('categories') }}">Categories</a>
             </li>
 
-            <li>
+            <li {!! active_route('pages') !!}>
                 <a href="{{ route('pages') }}">Pages</a>
             </li>
 
-            <li>
+            <li {!! active_route('contacts') !!}>
                 <a href="{{ route('contacts') }}">Contacts</a>
             </li>
         </ul>

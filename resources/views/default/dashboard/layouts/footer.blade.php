@@ -23,7 +23,7 @@
         {{-- Custom Scripts --}}
         @yield('custom_scripts')
         {{-- Footer Scripts --}}
-        {{ $shared['footer_scripts'] }}
+        {{ app_footer_scripts() }}
         {{-- Errors --}}
         @include('notify.error')
         @include('notify.success')

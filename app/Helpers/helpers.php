@@ -3,6 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Setting;
 
+# Route Active Status
+if( !function_exists('active_route') )
+{
+    function active_route(string $route_name) : string
+    {
+        return Route::currentRouteNamed($route_name) ? 'class="colorlib-active"' : '';
+    }
+}
+
 if(!function_exists('app_title'))
 {
     /**
@@ -51,7 +60,7 @@ if(!function_exists('app_favicon'))
      */
     function app_favicon() : string
     {
-        return Setting::first()->favicon ?? '';
+        return asset(Setting::first()->favicon) ?? asset('favicon.ico');
     }
 }
 

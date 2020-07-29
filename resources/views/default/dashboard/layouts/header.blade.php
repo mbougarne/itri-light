@@ -1,24 +1,17 @@
 <!DOCTYPE html>
 <html
     prefix="og: http://ogp.me/ns#"
-    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    lang="{{ app_language() }}">
 
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ $description ?? '' }}">
+    <meta name="description" content="{{ app_description() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Mourad Bougarne &mdash; {{ $title ?? ' '}}</title>
 
-    {{-- Open graph --}}
-    <meta property="og:title" content="{{ $shared['title'] ?? env('APP_NAME') }}" />
-    <meta property="og:og:description " content="{{ $description ?? '' }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ env('APP_URL') }}" />
-    <meta property="og:image" content="{{ asset($shared['logo']) ?? '' }}" />
-
-    <link rel="shortcut icon" href="{{ asset($shared['favicon']) ?? asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ app_favicon() }}" type="image/x-icon">
 
     {{-- Single Post Open Graph --}}
     @yield('article_ogp')
@@ -35,7 +28,7 @@
     @yield('custom_css')
 
     {{-- Header Script --}}
-    {{ $shared['header_scripts'] ?? '' }}
+    {{ app_header_scripts() }}
 </head>
 <body>
     {{-- Main Container --}}
