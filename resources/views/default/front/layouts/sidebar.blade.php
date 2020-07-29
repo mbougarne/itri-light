@@ -18,16 +18,20 @@
 
     <nav id="colorlib-main-menu" role="navigation">
         <ul>
-            <li class="colorlib-active">
-                <a href="{{ route('dashboard') }}">Home</a>
+            <li {!! active_route('pages.home') !!}>
+                <a href="{{ route('pages.home') }}">Home</a>
             </li>
 
-            <li>
-                <a href="/about">About</a>
+            <li {!! active_route('pages.about') !!}>
+                <a href="{{ route('pages.about') }}">About</a>
             </li>
 
-            <li>
-                <a href="/contact">Contact</a>
+            <li {!! active_route('pages.contact') !!}>
+                <a href="{{ route('pages.contact') }}">Contact</a>
+            </li>
+
+            <li {!! active_route('posts.blog') !!}>
+               <a href="{{ route('posts.blog') }}">Blog</a>
             </li>
         </ul>
     </nav>

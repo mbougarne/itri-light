@@ -13,13 +13,12 @@ class Pages
      */
     public function home()
     {
-        $data = [
-                'title' => 'Welcome',
-                'description' => 'Latest posts',
-                'posts' => Post::paginate(),
-                'page' => Page::firstWhere('slug', 'home')
-            ];
-        return view('default.front.pages.home', $data);
+        return view('default.front.pages.home', [
+            'title' => 'Home',
+            'description' => 'Latest posts',
+            'posts' => Post::paginate(12),
+            'page' => Page::firstWhere('slug', 'home')
+        ]);
     }
 
     /**
@@ -30,17 +29,30 @@ class Pages
      */
     public function single(Page $page)
     {
-        return view('default.front.pages.single', ['page' => $page]);
+        return view('default.front.pages.single', [
+                'title' => $page->title ?? $page->name,
+                'page' => $page
+            ]);
     }
 
     /**
      * Get single page
      *
-     * @param App\Models\Page $page
      * @return \Illuminate\Http\Response
      */
-    public function contact(Page $page)
+    public function contact()
     {
-        return view('default.front.pages.contact', ['page' => $page]);
+        return view('default.front.pages.contact', [
+                'title' => $page->title ?? $page->name,
+                'page' => Page::firstWhere('slug', 'contact'),
+            ]);
+    }
+
+    public function about()
+    {
+        return view('default.front.pages.about', [
+                'title' => $page->title ?? $page->name,
+                'page' => Page::firstWhere('slug', 'about'),
+            ]);
     }
 }

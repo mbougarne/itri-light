@@ -7,6 +7,19 @@ use App\Models\{Post, Category};
 class Posts
 {
     /**
+     * All post
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function blog()
+    {
+        return view('default.front.posts.single', [
+            'title' => 'Blog',
+            'posts' => Post::paginate(12)->with('categories')
+        ]);
+    }
+
+    /**
      * Single post
      *
      * @param \App\Models\Post $post

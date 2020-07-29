@@ -29,6 +29,7 @@ Route::group(['middleware' => ['guest', 'app.install']], function () {
     });
     # Posts
     Route::group(['prefix' => 'posts'], function () {
+        Route::get('/blog', [Posts::class, 'blog'])->name('posts.blog');
         Route::get('/{post}', [Posts::class, 'single'])->name('posts.post');
     });
     # Categories
@@ -38,6 +39,7 @@ Route::group(['middleware' => ['guest', 'app.install']], function () {
     # Pages
     Route::get('/', [Pages::class, 'home'])->name('pages.home');
     Route::get('/contact', [Pages::class, 'contact'])->name('pages.contact');
+    Route::get('/about', [Pages::class, 'about'])->name('pages.about');
     Route::get('/{page}', [Pages::class, 'single'])->name('pages.single');
 });
 
