@@ -60,20 +60,15 @@
     </nav>
     <!-- Footer -->
     <div class="mt-3 pt-2">
-        <!-- Footer -->
-        <footer>
-            <div class="colorlib-footer text-center">
-                <p>
-                    <small>
-                        Copyright &copy; {{ now()->year }} All rights reserved
-                        |
-                        This template is made with
-                        <i class="icon-heart" aria-hidden="true"></i>
-                        by
-                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    </small>
-                </p>
-            </div>
-        </footer>
+        {{-- Logout --}}
+        <form
+            action="{{ route('logout') }}"
+            method="POST"
+            class="d-inline">
+            @csrf
+            <button class="btn btn-sm ">
+                Logout <i class="icon-arrow-right text-danger"></i>
+            </button>
+        </form>
     </div>
 </aside>

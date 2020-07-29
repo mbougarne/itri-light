@@ -14,6 +14,8 @@ class Pages
     public function home()
     {
         $data = [
+                'title' => 'Welcome',
+                'description' => 'Latest posts',
                 'posts' => Post::paginate(),
                 'page' => Page::firstWhere('slug', 'home')
             ];

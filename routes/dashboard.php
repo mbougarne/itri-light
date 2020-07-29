@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\Contacts\{
 
 use App\Http\Controllers\Admin\Profiles\{UpdateProfile, UpdateUser};
 use App\Http\Controllers\Admin\{SettingController, Dashboard};
+use App\Http\Controllers\Admin\Login;
 
 /**
  * ----------------------------------------------------------------------------
@@ -94,4 +95,5 @@ Route::group(['prefix' => 'settings'], function () {
 });
 
 Route::get('/', [Dashboard::class, 'home'])->name('dashboard');
+Route::post('/logout', [Login::class, 'logout'])->name('logout');
 Route::post('/upload-image', [Dashboard::class, 'uploadImage'])->name('editor.upload.image');

@@ -12,15 +12,16 @@
     <title>{{ $title ?? 'Mourad Bougarne'}}</title>
 
     {{-- Open graph --}}
-    <meta property="og:title" content="{{ $title ?? env('APP_NAME') }}" />
-    <meta property="og:og:description " content="{{ $description ?? '' }}" />
+    <meta property="og:title" content="{{ $title  }}" />
+    <meta property="og:og:description " content="{{ $description  }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ env('APP_URL') }}" />
-    <meta property="og:image" content="{{ $shared['logo'] ?? '' }}" />
+    <meta property="og:image" content="{{ app_logo() }}" />
 
     {{-- Single Post Open Graph --}}
     @yield('article_ogp')
 
+    <link rel="stylesheet" href="{{ asset('assets/izitoast/css/iziToast.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
@@ -32,7 +33,7 @@
     @yield('custom_css')
 
     {{-- Header Script --}}
-    {{ $shared['header_scripts'] ?? '' }}
+    {{ app_header_scripts() }}
 </head>
 <body>
     {{-- Main Container --}}

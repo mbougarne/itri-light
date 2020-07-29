@@ -1,5 +1,20 @@
             </div>
         </div>
+        <!-- Footer -->
+        <footer>
+            <div class="colorlib-footer text-center">
+                <p>
+                    <small>
+                        Copyright &copy; {{ now()->year }} All rights reserved
+                        |
+                        This template is made with
+                        <i class="icon-heart" aria-hidden="true"></i>
+                        by
+                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </small>
+                </p>
+            </div>
+        </footer>
         <!-- loader -->
         <div id="ftco-loader" class="show fullscreen">
             <svg class="circular" width="48px" height="48px">

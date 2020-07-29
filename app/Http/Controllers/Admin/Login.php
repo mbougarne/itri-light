@@ -30,12 +30,18 @@ class Login
         $validated = array_merge($request->all(), [$username => $request->username]);
 
         $credentials = [
-            'username' => $validated[$username],
+            $username => $validated[$username],
             'password' => $validated['password']
         ];
 
         return (Auth::attempt($credentials, $remember))
             ? redirect()->route('dashboard')->with('success', "Welcome!")
             : redirect()->back()->withErrors(['errors' => "There is an issue, please try again"]);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login')->with('success', "See you soon!");
     }
 }

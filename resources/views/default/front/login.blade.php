@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html
     prefix="og: http://ogp.me/ns#"
-    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    lang="{{ app_language() }}">
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Login</title>
 
+    <link rel="stylesheet" href="{{ asset('assets/izitoast/css/iziToast.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
@@ -128,6 +129,7 @@
     <!-- JavaScript / Scrips -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ asset('assets/izitoast/js/iziToast.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
@@ -136,6 +138,9 @@
     <script src="{{ asset('assets/js/aos.js') }}"></script>
     <script src="{{ asset('assets/js/scrollax.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    </body>
+    {{-- Errors --}}
+    @include('notify.error')
+    @include('notify.success')
+</body>
 </html>
 

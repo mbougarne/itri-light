@@ -13,6 +13,9 @@ class All
      */
     public function __invoke()
     {
-        return view('default.dashboard.contacts.index', ['contacts' => Contact::paginate()]);
+        return view('default.dashboard.contacts.index', [
+                'title' => 'Received Messages',
+                'contacts' => Contact::paginate()
+            ]);
     }
 }

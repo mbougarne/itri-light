@@ -14,12 +14,6 @@
             <!-- Post container -->
             <div class="col-md-4">
                 <article class="blog-entry ftco-animate">
-                    <!-- Update -->
-                    <a
-                        href="{{ route('posts.update', $post->id) }}"
-                        class="btn btn-block btn-primary mb-2">
-                        UPDATE <i class="icon-pencil"></i>
-                    </a>
                     <!-- Thumbnail -->
                     <a href="{{ route('posts.update', $post->id) }}">
                         <img src="{{ asset($post->thumbnail) }}" class="img-fluid">
@@ -31,6 +25,14 @@
                             <a href="{{ route('posts.update', $post->id) }}" class="text-dark">
                                 {{ $post->title }}
                             </a>
+                            <!-- Update -->
+                            <small>
+                                <a
+                                    href="{{ route('posts.update', $post->id) }}"
+                                    class="btn btn-sm btn-link text-danger float-right">
+                                    UPDATE <i class="icon-pencil"></i>
+                                </a>
+                            </small>
                         </p>
                     </div>
                 </article>
