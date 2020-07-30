@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
-use App\Models\{Page, Post};
+use App\Models\{Page, Post, User};
 
 class Pages
 {
@@ -17,7 +17,7 @@ class Pages
             'title' => 'Home',
             'description' => 'Latest posts',
             'posts' => Post::paginate(12),
-            'page' => Page::firstWhere('slug', 'home')
+            'page' => Page::firstWhere('slug', 'home'),
         ]);
     }
 

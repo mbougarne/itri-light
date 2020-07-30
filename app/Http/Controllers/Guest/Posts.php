@@ -13,7 +13,7 @@ class Posts
      */
     public function blog()
     {
-        return view('default.front.posts.single', [
+        return view('default.front.posts.blog', [
             'title' => 'Blog',
             'posts' => Post::paginate(12)->with('categories')
         ]);

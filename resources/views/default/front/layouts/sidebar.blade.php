@@ -39,17 +39,17 @@
     <div class="colorlib-footer">
         <ul>
             <li>
-                <a href="{{ auth()->user()->profile->facebook }}">
+                <a href="{{ admin_profile()->facebook }}">
                     <i class="icon-facebook"></i>
                 </a>
             </li>
             <li>
-                <a href="{{ auth()->user()->profile->twitter }}">
+                <a href="{{ admin_profile()->twitter }}">
                     <i class="icon-twitter"></i>
                 </a>
             </li>
             <li>
-                <a href="{{ auth()->user()->profile->github }}">
+                <a href="{{ admin_profile()->github }}">
                     <i class="icon-github"></i>
                 </a>
             </li>

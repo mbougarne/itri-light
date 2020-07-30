@@ -65,7 +65,7 @@ class Profile extends Model
      */
     public function getAvatarAttribute($value)
     {
-        return ($value) ? 'avatars/' . $value : 'img/default-avatar.png';
+        return ($value) ? 'uploads/avatars/' . $value : 'img/default-avatar.png';
     }
 
     /**

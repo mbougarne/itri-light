@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Setting;
+use App\Models\{Setting, Profile};
 
 # Route Active Status
 if( !function_exists('active_route') )
@@ -9,6 +9,14 @@ if( !function_exists('active_route') )
     function active_route(string $route_name) : string
     {
         return Route::currentRouteNamed($route_name) ? 'class="colorlib-active"' : '';
+    }
+}
+
+if( !function_exists('admin_profile') )
+{
+    function admin_profile()
+    {
+        return Profile::first();
     }
 }
 
