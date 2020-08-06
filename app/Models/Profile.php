@@ -58,6 +58,17 @@ class Profile extends Model
     }
 
     /**
+     * Get the last name in title case
+     *
+     * @param string $value
+     * @return string
+     */
+    public function fullName()
+    {
+        return ucfirst($this->first_name . ' ' . $this->last_name);
+    }
+
+    /**
      * Get the avatar
      *
      * @param string $value

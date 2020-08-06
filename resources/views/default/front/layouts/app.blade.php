@@ -1,5 +1,7 @@
 @include('default.front.layouts.header')
-<!-- Articles -->
+{{-- Single Post --}}
+@yield('single-post')
+<!-- Main Content -->
 <section class="ftco-section">
     <!-- Latest posts container -->
     <div class="container">

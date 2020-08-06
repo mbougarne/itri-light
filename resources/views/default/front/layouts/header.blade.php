@@ -23,11 +23,12 @@
 
     <link rel="stylesheet" href="{{ asset('assets/izitoast/css/iziToast.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}">
+	{{-- <link rel="stylesheet" href="{{ asset('assets/css/open-iconic-bootstrap.min.css') }}"> --}}
 	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
     {{-- Custom CSS --}}
     @yield('custom_css')

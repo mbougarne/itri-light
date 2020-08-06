@@ -15,7 +15,8 @@ class Posts
     {
         return view('default.front.posts.blog', [
             'title' => 'Blog',
-            'posts' => Post::paginate(12)->with('categories')
+            'description' => 'The blog post',
+            'posts' => Post::paginate(9)
         ]);
     }
 
@@ -29,7 +30,9 @@ class Posts
     {
         $data = [
             'post' => $post,
-            'related' => Post::all()->random(3)
+            'title' => $post->title,
+            'description' => $post->description,
+            'related' => Post::where('id', '!=', $post->id)->get()->random(3)
         ];
 
         return view('default.front.posts.single', $data);
@@ -43,6 +46,10 @@ class Posts
      */
     public function category(Category $category)
     {
-        return view('default.front.posts.category', ['category' => $category]);
+        return view('default.front.posts.category', [
+                'title' => 'Posts of ' . $category->name,
+                'description' => 'Posts of ' . $category->name . ' category',
+                'posts' => $category->posts()->paginate(9)
+            ]);
     }
 }
