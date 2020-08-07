@@ -31,6 +31,7 @@ class Pages
     {
         return view('default.front.pages.single', [
                 'title' => $page->title ?? $page->name,
+                'description' => $page->description ?? $page->name,
                 'page' => $page
             ]);
     }
@@ -46,6 +47,7 @@ class Pages
 
         return view('default.front.pages.single', [
                 'title' => $page->title ?? $page->name,
+                'description' => $page->description ?? $page->name,
                 'page' => $page,
             ]);
     }
@@ -56,7 +58,8 @@ class Pages
 
         return view('default.front.pages.single', [
                 'title' => $page->title ?? $page->name,
-                'page' => $page,
+                'description' => $page->description ?? $user->profile->bio,
+                'page' => $page
             ]);
     }
 }

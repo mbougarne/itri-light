@@ -24,3 +24,30 @@
 .hero-wrap .screen-text{
     color: #444;
 }
+.about-page .overlay {
+    background: rgb(0 0 0 / 0.3);
+}
+.about-page .text .subheading {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.about-page .text p.mb-4{
+    color: rgb(255 255 255 / 0.8)
+}
+.about-page h1{
+    color: #fff;
+}
+.about-page .ftco-social li a {
+    height: 50px;
+    width: 50px;
+    display: block;
+    float: left;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    position: relative;
+    line-height: 50px !important;
+    font-size: 1.5rem;
+    color: #000;
+}
