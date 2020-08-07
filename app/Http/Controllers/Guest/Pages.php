@@ -42,17 +42,21 @@ class Pages
      */
     public function contact()
     {
-        return view('default.front.pages.contact', [
+        Page::firstWhere('slug', 'contact');
+
+        return view('default.front.pages.single', [
                 'title' => $page->title ?? $page->name,
-                'page' => Page::firstWhere('slug', 'contact'),
+                'page' => $page,
             ]);
     }
 
     public function about()
     {
-        return view('default.front.pages.about', [
+        $page = Page::firstWhere('slug', 'about');
+
+        return view('default.front.pages.single', [
                 'title' => $page->title ?? $page->name,
-                'page' => Page::firstWhere('slug', 'about'),
+                'page' => $page,
             ]);
     }
 }
