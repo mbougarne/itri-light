@@ -29,18 +29,18 @@ Route::group(['middleware' => ['guest', 'app.install']], function () {
     });
     # Posts
     Route::group(['prefix' => 'posts'], function () {
-        Route::get('/blog', [Posts::class, 'blog'])->name('posts.blog');
-        Route::get('/{post}', [Posts::class, 'single'])->name('posts.post');
+        Route::get('/', [Posts::class, 'blog'])->name('posts.blog');
+        Route::get('/{post:slug}', [Posts::class, 'single'])->name('posts.post');
     });
     # Categories
     Route::group(['prefix' => 'categories'], function () {
-        Route::get('/{category}', [Posts::class, 'category'])->name('categories.posts');
+        Route::get('/{category:slug}', [Posts::class, 'category'])->name('categories.posts');
     });
     # Pages
     Route::get('/', [Pages::class, 'home'])->name('pages.home');
     Route::get('/contact', [Pages::class, 'contact'])->name('pages.contact');
     Route::get('/about', [Pages::class, 'about'])->name('pages.about');
-    Route::get('/{page}', [Pages::class, 'single'])->name('pages.single');
+    Route::get('/{page:slug}', [Pages::class, 'single'])->name('pages.single');
 });
 
 Route::fallback( fn() => abort(404));

@@ -38,14 +38,14 @@
         <article class="blog-entry ftco-animate">
             <!-- Thumbnail -->
             <a
-                href="{{ route('posts.post', $related_post->id) }}"
+                href="{{ route('posts.post', $related_post->slug) }}"
                 class="img img-2"
                 style="background-image: url({{asset($related_post->thumbnail)}});"></a>
             <!-- Post preview -->
             <div class="text text-2 pt-2 mt-3">
                 <!-- Post Title -->
                 <h3 class="mb-4">
-                    <a href="{{ route('posts.post', $related_post->id) }}">
+                    <a href="{{ route('posts.post', $related_post->slug) }}">
                         {{ $related_post->title }}
                     </a>
                 </h3>

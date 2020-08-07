@@ -11,7 +11,7 @@
                 <article class="blog-entry ftco-animate">
                     <!-- Thumbnail -->
                     <a
-                        href="{{ route('posts.post', $post->id) }}"
+                        href="{{ route('posts.post', $post->slug) }}"
                         class="img img-2"
                         style="background-image: url({{asset($post->thumbnail)}});"></a>
                     <!-- Post preview -->
@@ -27,7 +27,7 @@
 
                         <!-- Post Title -->
                         <h3 class="mb-4">
-                            <a href="{{ route('posts.post', $post->id) }}">
+                            <a href="{{ route('posts.post', $post->slug) }}">
                                 {{ $post->title }}
                             </a>
                         </h3>
@@ -65,7 +65,7 @@
                             <div class="half">
                                 <p>
                                     <a
-                                        href="{{ route('posts.post', $post->id) }}"
+                                        href="{{ route('posts.post', $post->slug) }}"
                                         class="btn py-2 float-right">
                                         Continue Reading
                                         <span class="ion-ios-arrow-forward"></span>
