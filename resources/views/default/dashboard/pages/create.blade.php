@@ -40,6 +40,18 @@
                                 </span>
                             @enderror
                         </div>
+                        {{-- Template --}}
+                        <div class="col-12">
+                            <label for="template">Page Template</label>
+                            <select
+                                name="template"
+                                id="template"
+                                class="form-control">
+                                <option value="default" selected>Default</option>
+                                <option value="about">About</option>
+                                <option value="contact">Contact</option>
+                            </select>
+                        </div>
                        {{-- title --}}
                         <div class="col-12">
                             <label for="title">Title</label>

@@ -72,6 +72,24 @@
                                 </span>
                             @enderror
                         </div>
+                        {{-- Template --}}
+                        <div class="col-12">
+                            <label for="template">Page Template</label>
+                            <select
+                                name="template"
+                                id="template"
+                                class="form-control">
+                                <option
+                                    value="default"
+                                    {{ ($page->template == 'default') ? 'selected' : '' }}>Default</option>
+                                <option
+                                    value="about"
+                                    {{ ($page->template == 'about') ? 'selected' : '' }}>About</option>
+                                <option
+                                    value="contact"
+                                    {{ ($page->template == 'contact') ? 'selected' : '' }}>Contact</option>
+                            </select>
+                        </div>
                        {{-- title --}}
                         <div class="col-12">
                             <label for="title">Title</label>
