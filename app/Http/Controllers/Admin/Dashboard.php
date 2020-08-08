@@ -13,7 +13,7 @@ class Dashboard
         $data = [
             'title' => 'Dashboard',
             'posts' => Post::latest()->limit(3)->get(),
-            'contacts' => Contact::latest()->limit(3)->get(),
+            'contacts' => Contact::where('is_read', 0)->latest()->limit(5)->get(),
         ];
 
         return view('default.dashboard.home', $data);
