@@ -25,7 +25,6 @@ use App\Http\Controllers\Admin\Categories\{
 
 use App\Http\Controllers\Admin\Contacts\{
     All as AllContacts,
-    Create as CreateContact,
     Delete as DeleteContact,
     Single,
     Reply,
@@ -73,7 +72,6 @@ Route::group(['prefix' => 'categories'], function () {
 # Contacts
 Route::group(['prefix' => 'contacts'], function () {
     Route::get('/', AllContacts::class)->name('contacts');
-    Route::post('/create', CreateContact::class)->name('contacts.create');
     Route::post('/reply/{contact}', Reply::class)->name('contacts.reply');
     Route::post('/delete/{contact}', DeleteContact::class)->name('contacts.delete');
     Route::get('/{contact}', Single::class)->name('contacts.single');

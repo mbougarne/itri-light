@@ -43,7 +43,7 @@ class Pages
      */
     public function contact()
     {
-        Page::firstWhere('slug', 'contact');
+        $page = Page::firstWhere('slug', 'contact');
 
         return view('default.front.pages.single', [
                 'title' => $page->title ?? $page->name,

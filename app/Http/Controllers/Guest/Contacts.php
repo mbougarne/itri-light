@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Contacts;
+namespace App\Http\Controllers\Guest;
 
 use App\Http\Requests\CreateContact;
 use App\Models\Contact;
 
-class Create
+class Contacts
 {
     /**
      * Store a newly created resource in storage.
