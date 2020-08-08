@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Mail\Markdown;
 use App\Models\{Setting, Profile};
 
 # Route Active Status
@@ -121,5 +122,18 @@ if(!function_exists('app_header_scripts'))
     function app_header_scripts() : string
     {
         return Setting::first()->header_scripts ?? '';
+    }
+}
+
+if(!function_exists('app_parse_markdown'))
+{
+    /**
+     * Get app header scripts
+     *
+     * @return string
+     */
+    function app_parse_markdown(string $content) : string
+    {
+        return Markdown::parse($content);
     }
 }
