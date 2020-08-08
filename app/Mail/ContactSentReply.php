@@ -35,6 +35,6 @@ class ContactSentReply extends Mailable implements ShouldQueue
     {
         return $this->from(app_admin_email(), env('APP_NAME'))
                     ->subject($this->reply['subject'])
-                    ->markdown('emails.contacts.reply', $this->reply);
+                    ->markdown('emails.contacts.reply', ['reply' => $this->reply]);
     }
 }
