@@ -1,6 +1,4 @@
 @component('mail::message')
-# Hello {{ $reply['first_name'] }},
-
 {{ $reply['body'] }}
 
 <br>
