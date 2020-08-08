@@ -1,12 +1,18 @@
 @component('mail::message')
-# Introduction
+# Hello {{ admin_profile()->first_name }}
 
-The body of your message.
+You have new message from **{{ $contact->first_name }}**, the message details:
 
-@component('mail::button', ['url' => ''])
-Button Text
+- Sender Full Name: **{{ $contact->first_name . ' ' . $contact->last_name}}**
+- Email Address: **{{ $contact->email }}**
+- Subject: **{{ $contact->subject }}**
+
+{{ $contact->body }}
+
+@component('mail::button', ['url' => route('contacts.single', $contact->id)])
+Reply
 @endcomponent
 
-Thanks,<br>
+Regards,<br>
 {{ config('app.name') }}
 @endcomponent

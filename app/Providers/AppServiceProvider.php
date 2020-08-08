@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\{View, Schema};
-use App\Models\Setting;
+use App\Models\{Setting, Contact};
+use App\Observers\ContactObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        Contact::observe(ContactObserver::class);
+
         if(Schema::hasTable('settings')) {
 
             View::composer('*', function($view){
