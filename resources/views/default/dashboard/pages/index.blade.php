@@ -39,7 +39,7 @@
                         <div class="text text-2">
                             <!-- Post Title -->
                             <h5 class="mb-4">
-                                <a href="{{ route('posts.update', $page->id) }}">
+                                <a href="{{ route('pages.update', $page->id) }}">
                                     {{ $page->name }}
                                 </a>
                                 <small class="text-muted">
