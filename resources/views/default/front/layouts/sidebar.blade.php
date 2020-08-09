@@ -38,21 +38,29 @@
     <!-- Social Media -->
     <div class="colorlib-footer">
         <ul>
-            <li>
-                <a href="{{ admin_profile()->facebook }}">
-                    <i class="icon-facebook"></i>
-                </a>
-            </li>
-            <li>
-                <a href="{{ admin_profile()->twitter }}">
-                    <i class="icon-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a href="{{ admin_profile()->github }}">
-                    <i class="icon-github"></i>
-                </a>
-            </li>
+            @if (admin_profile()->facebook)
+                <li>
+                    <a href="{{ admin_profile()->facebook }}">
+                        <i class="icon-facebook"></i>
+                    </a>
+                </li>
+            @endif
+
+            @if (admin_profile()->twitter)
+                <li>
+                    <a href="{{ admin_profile()->twitter }}">
+                        <i class="icon-twitter"></i>
+                    </a>
+                </li>
+            @endif
+
+            @if (admin_profile()->github)
+                <li>
+                    <a href="{{ admin_profile()->github }}">
+                        <i class="icon-github"></i>
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </aside>
